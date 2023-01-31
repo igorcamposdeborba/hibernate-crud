@@ -2,16 +2,26 @@ package teste.basico;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
-
+import infrastructure.DAO;
 import model.basic.User;
 
 public class GetUsers {
 	public static void main(String[] args) {
 		
+		DAO<User> userDAO = new DAO<User>(User.class);
+		
+		List<User> userList = userDAO.getAll(100, 0);
+		
+		for (User i : userList) {
+			System.out.println("Id: " + i.getId() + 
+							 ", Nome: " + i.getName() +
+							 ", E-mail " + i.getEmail());
+		}
+		
+		userDAO.closeDAO();
+		
+		/*
+		// Forma manual sem DAO
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("exercicios-jpa");
 		EntityManager em = emf.createEntityManager();
 		
@@ -29,5 +39,6 @@ public class GetUsers {
 		
 		em.close();
 		emf.close();
+		*/
 	}
 }
