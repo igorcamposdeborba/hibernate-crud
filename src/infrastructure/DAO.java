@@ -82,6 +82,14 @@ public class DAO<T> {
 		return this;
 	}
 	
+	public void detach(T obj) {
+		em.detach(obj);
+	}
+	public DAO<T> merge(T obj) {
+		em.merge(obj);
+		return this;
+	}
+	
 	public void closeDAO() {
 		em.close();
 	}

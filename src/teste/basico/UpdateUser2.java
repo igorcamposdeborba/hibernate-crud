@@ -17,7 +17,7 @@ public class UpdateUser2 {
 			user.setName("Igor Campos de Borba");
 			user.setEmail("igor@yahoo.com.br");
 			
-			// em.merge(user);
+			// em.merge(user); // o hibernate persiste no banco mesmo não tendo merge() porque ele tem o getTransaction
 			
 		em.getTransaction().commit();
 		
