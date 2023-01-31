@@ -64,12 +64,8 @@ public class DAO<T> {
 	}
 	
 	public T getById(Long id) {
-		unsupportedOperationException(classe);
-		
-		String jpql = "SELECT e FROM " + classe.getName() + " e WHERE id = " + id;
-		TypedQuery<T> query = em.createQuery(jpql, classe);
-		
-		return query.getSingleResult();
+				
+		return em.find(classe, id);
 	}
 	
 	public DAO<T> deleteById(Long id) {

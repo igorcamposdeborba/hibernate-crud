@@ -1,5 +1,6 @@
 package model.basic.onetoone;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +18,7 @@ public class Client {
 	
 	private String name;
 	
-	@OneToOne // relacionamento 1:1. O cliente sabe tudo sobre o assento dele
+	@OneToOne (cascade = CascadeType.PERSIST) // relacionamento 1:1. O cliente sabe tudo sobre o assento dele. PERSIST vai salvar no banco o registro da tabela assento cliente
 	@JoinColumn(name = "seat_id", unique = true) // name define o nome da coluna no banco de dados. unique obriga que não tenha repetição (do mesmo assento para dois clientes, que seria uma inconsistência do banco de dados)
 	private Seat seat; // composição 1:1
 	
@@ -40,5 +41,11 @@ public class Client {
 		this.name = name;
 	}
 	
+	public Seat getSeat() {
+		return seat;
+	}
+	public void setSeat(Seat seat) {
+		this.seat = seat;
+	}
 	
 }
