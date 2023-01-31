@@ -22,6 +22,7 @@ public class GetUsers {
 		
 		/*
 		// Forma manual sem DAO
+		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("exercicios-jpa");
 		EntityManager em = emf.createEntityManager();
 		

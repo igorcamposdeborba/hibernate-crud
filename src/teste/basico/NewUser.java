@@ -4,11 +4,27 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import infrastructure.DAO;
+import model.basic.Product;
 import model.basic.User;
 
 public class NewUser {
 
 	public static void main(String[] args) {
+		
+		DAO<User> userDAO = new DAO<User>(User.class);
+		
+		User user = new User("Gabriela", "gabi@gmail.com");
+		
+		userDAO.begin()
+			   .add(user)
+			   .commit()
+			   .closeDAO();
+		
+		System.out.println("Id do usuario: " + user.getId());
+		
+		/*
+		// Forma manual sem DAO
 		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("exercicios-jpa");
 		EntityManager em = emf.createEntityManager();
@@ -26,5 +42,6 @@ public class NewUser {
 		
 		em.close();
 		emf.close();
+		*/
 	}
 }
