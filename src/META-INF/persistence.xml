@@ -10,6 +10,8 @@
 		<class>model.basic.Product</class>
 		<class>model.basic.onetoone.Client</class>
 		<class>model.basic.onetoone.Seat</class>
+		<class>model.basic.onetomany.Order</class>
+		<class>model.basic.onetomany.OrderItem</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
