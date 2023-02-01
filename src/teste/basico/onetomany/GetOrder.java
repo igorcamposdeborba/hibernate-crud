@@ -13,6 +13,7 @@ public class GetOrder {
 		
 		for (OrderItem i : order.getOrder()) {
 			System.out.println(i.getQuantity());
+			System.out.println(i.getProduct().getName());
 		}
 		
 		orderDAO.closeDAO();
