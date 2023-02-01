@@ -34,6 +34,7 @@ public class OrderItem {
 		this.setProduct(product);
 	}
 	
+	// access methods
 	public Long getId() {
 		return id;
 	}
@@ -53,7 +54,7 @@ public class OrderItem {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
-	
+	// composition methods
 	public Order getOrder() {
 		return order;
 	}

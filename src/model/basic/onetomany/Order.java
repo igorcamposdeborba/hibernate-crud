@@ -1,11 +1,13 @@
 package model.basic.onetomany;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity (name = "tb_order")
 public class Order {
@@ -16,6 +18,8 @@ public class Order {
 	@Column(nullable = false)
 	private Date date;
 	
+	@OneToMany(mappedBy = "order") // relacionamento bidirecional 
+	private List<OrderItem> orderList;
 	
 	public Order() {
 		this.date = new Date();
@@ -35,6 +39,14 @@ public class Order {
 	}
 	public void setDate() {
 		this.date = date;
+	}
+	
+	// composition methods
+	public List<OrderItem> getOrder(){
+		return orderList;
+	}
+	public void setOrder(List<OrderItem> orderList) {
+		this.orderList = orderList;
 	}
 	
 }
