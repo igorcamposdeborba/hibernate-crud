@@ -12,6 +12,8 @@
 		<class>model.basic.onetoone.Seat</class>
 		<class>model.basic.onetomany.Order</class>
 		<class>model.basic.onetomany.OrderItem</class>
+		<class>model.basic.manytomany.Uncle</class>
+		<class>model.basic.manytomany.Nephew</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
